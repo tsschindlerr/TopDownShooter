@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,15 +9,20 @@ public class Enemy : MonoBehaviour
     private GameObject player;
     private Vector3 lookDirection;
 
+    //animation
+    public bool isEnemyMoving;
+    private Animator animator;
+
     void Start()
     {
         //access essential components for enemy movement
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
+        animator = GetComponentInChildren<Animator>();
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         //create a vector to face the player + add speed
         if (player != null)
@@ -27,11 +31,13 @@ public class Enemy : MonoBehaviour
             Vector3 newDirection = Vector3.RotateTowards(transform.forward, lookDirection.normalized, rotationSpeed * Time.fixedDeltaTime, 0f);
             Quaternion rotation = Quaternion.LookRotation(newDirection);
             enemyRb.MoveRotation(rotation);
-            enemyRb.AddForce(newDirection * speed);
+            enemyRb.AddForce(newDirection * speed, ForceMode.Acceleration);
+            isEnemyMoving = true;
         }
         else
         {
             lookDirection = transform.position;
+            isEnemyMoving= false;
         }
 
         //if enemy falls under the map = destroy
@@ -40,6 +46,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
 
+        AnimationTrigger();
 
     }
 
@@ -50,6 +57,18 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             Destroy(other.gameObject);
             Debug.Log("Enemy collided with Projectile");
+        }
+    }
+
+    void AnimationTrigger()
+    {
+        if(isEnemyMoving)
+        {
+            animator.SetFloat("Speed_f", 1);
+        }
+        else
+        {
+            animator.SetFloat("Speed_f", 0);
         }
     }
 }
