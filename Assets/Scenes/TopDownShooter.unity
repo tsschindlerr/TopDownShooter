@@ -562,6 +562,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1412864261103519665, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
   m_PrefabInstance: {fileID: 2500468367118229561}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1019016237 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8607507527371201410, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
+  m_PrefabInstance: {fileID: 2500468367118229561}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1175075625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,6 +1014,7 @@ MonoBehaviour:
   - {fileID: 3363034505739839163, guid: 20384cc2db282544e98254b2eff9479e, type: 3}
   - {fileID: 3019041054389251757, guid: f1f26148ba16ba44286d18e37df6bdde, type: 3}
   - {fileID: 1675243360061182002, guid: 00136ef726961354b8d9b73235c43556, type: 3}
+  player: {fileID: 1019016237}
   spawnPosX: 32
   spawnPosZ: 32
   spawnRangeX: 18
