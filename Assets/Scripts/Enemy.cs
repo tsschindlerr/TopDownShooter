@@ -31,18 +31,13 @@ public class Enemy : MonoBehaviour
             Vector3 newDirection = Vector3.RotateTowards(transform.forward, lookDirection.normalized, rotationSpeed * Time.fixedDeltaTime, 0f);
             Quaternion rotation = Quaternion.LookRotation(newDirection);
             enemyRb.MoveRotation(rotation);
-            enemyRb.linearVelocity = new Vector3(
-    newDirection.x * speed,
-    enemyRb.linearVelocity.y,
-    newDirection.z * speed
-);
-            //enemyRb.AddForce(newDirection * speed, ForceMode.Acceleration);
+            enemyRb.linearVelocity = new Vector3(newDirection.x * speed, enemyRb.linearVelocity.y,newDirection.z * speed);
             isEnemyMoving = true;
         }
         else
         {
             lookDirection = transform.position;
-            isEnemyMoving= false;
+            isEnemyMoving = false;
         }
 
         //if enemy falls under the map = destroy
@@ -67,7 +62,7 @@ public class Enemy : MonoBehaviour
 
     void AnimationTrigger()
     {
-        if(isEnemyMoving)
+        if (isEnemyMoving)
         {
             animator.SetFloat("Speed_f", 1);
         }
