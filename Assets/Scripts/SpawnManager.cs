@@ -5,19 +5,19 @@ public class SpawnManager : MonoBehaviour
 {
     //enemy variables
     public GameObject[] enemyPrefabs;
-    public Transform player;
-    public float spawnPosX;
-    public float spawnPosZ;
-    public float spawnRangeX;
-    public float spawnRangeZ;
-    public float startDelay;
-    public float spawnInterval;
+    [SerializeField] private Transform player;
+    [SerializeField] private float spawnPosX;
+    [SerializeField] private float spawnPosZ;
+    [SerializeField] private float spawnRangeX;
+    [SerializeField] private float spawnRangeZ;
+    [SerializeField] private float startDelay;
+    [SerializeField] private float spawnInterval;
 
     //powerup variables
     public GameObject[] powerupPrefabs;
-    public float spawnPowerupDelay;
-    public float spawnPowerupInterval;
-    private float spawnRangePowerup = 20;
+    [SerializeField] private float spawnPowerupDelay;
+    [SerializeField] private float spawnPowerupInterval;
+    [SerializeField] private float spawnRangePowerup = 20;
 
     void Start()
     {

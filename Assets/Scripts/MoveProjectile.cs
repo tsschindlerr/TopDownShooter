@@ -2,22 +2,20 @@ using UnityEngine;
 
 public class MoveProjectile : MonoBehaviour
 {
-    public float speed;
-    public float projectileTopBound;
-    public float projectileSideBound;
-    //private Transform playerRotation;
-    void Start()
-    {
-        //playerRotation = GameObject.Find("Player").GetComponent<Transform>();
-    }
-
-    
+    private float speed = 60f;
+    private float projectileTopBound = 60f;
+    private float projectileSideBound = 60f;
+     
     void Update()
     {
-        //transform.rotation = playerRotation.rotation;
+        ProjectileMovement();
+    }
+
+    private void ProjectileMovement()
+    {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
-        if(transform.position.x > projectileSideBound)
+        if (transform.position.x > projectileSideBound)
         {
             Destroy(gameObject);
         }
@@ -36,6 +34,5 @@ public class MoveProjectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 }

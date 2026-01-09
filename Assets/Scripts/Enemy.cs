@@ -24,30 +24,9 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        //create a vector to face the player + add speed
-        if (player != null)
-        {
-            lookDirection = (player.transform.position - transform.position).normalized;
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, lookDirection.normalized, rotationSpeed * Time.fixedDeltaTime, 0f);
-            Quaternion rotation = Quaternion.LookRotation(newDirection);
-            enemyRb.MoveRotation(rotation);
-            enemyRb.linearVelocity = new Vector3(newDirection.x * speed, enemyRb.linearVelocity.y,newDirection.z * speed);
-            isEnemyMoving = true;
-        }
-        else
-        {
-            lookDirection = transform.position;
-            isEnemyMoving = false;
-        }
-
-        //if enemy falls under the map = destroy
-        if (transform.position.y < bottomBound)
-        {
-            Destroy(gameObject);
-        }
-
+        MoveEnemy();
+        OutOfBounds();
         AnimationTrigger();
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,7 +39,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void AnimationTrigger()
+    private void AnimationTrigger()
     {
         if (isEnemyMoving)
         {
@@ -69,6 +48,34 @@ public class Enemy : MonoBehaviour
         else
         {
             animator.SetFloat("Speed_f", 0);
+        }
+    }
+
+    private void MoveEnemy()
+    {
+        //create a vector to face the player + add speed
+        if (player != null)
+        {
+            lookDirection = (player.transform.position - transform.position).normalized;
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, lookDirection.normalized, rotationSpeed * Time.fixedDeltaTime, 0f);
+            Quaternion rotation = Quaternion.LookRotation(newDirection);
+            enemyRb.MoveRotation(rotation);
+            enemyRb.linearVelocity = new Vector3(newDirection.x * speed, enemyRb.linearVelocity.y, newDirection.z * speed);
+            isEnemyMoving = true;
+        }
+        else
+        {
+            lookDirection = transform.position;
+            isEnemyMoving = false;
+        }
+    }
+
+    private void OutOfBounds()
+    {
+        //if enemy falls under the map = destroy
+        if (transform.position.y < bottomBound)
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -6,22 +6,20 @@ public class PlayerController : MonoBehaviour
 
 {
     //player movement
-    public float speed;
-
+    [SerializeField] private float speed;
     private float horizontalInput;
     private float forwardInput;
-    public float turnSpeed;
-    public GameObject player;
+    [SerializeField] private float turnSpeed;
+    [SerializeField] private GameObject player;
+    [SerializeField] private float topBound;
+    [SerializeField] private float sideBound;
 
-    public float topBound;
-    public float sideBound;
-    
     //firing projectiles
-    public GameObject projectilePrefab;
-    public Transform projectileSpawnPoint;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform projectileSpawnPoint;
 
     //animation
-    public bool isMoving;
+    [SerializeField] private bool isMoving;
     private Animator animator;
 
     void Start()
@@ -62,7 +60,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //Limits player moevement to given area
+    //limits player moevement to given area
     void ConstrainPlayerMove()
     {
         if (transform.position.z > topBound)

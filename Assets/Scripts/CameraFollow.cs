@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField] private GameObject player;
     private Vector3 offset = new Vector3(-3, 24, 0);
     private Vector3 lastPosition;
 
@@ -15,6 +15,11 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
+        MoveCamera();
+    }
+
+    private void MoveCamera()
+    {
         if (player != null)
         {
             lastPosition = transform.position = player.transform.position + offset;
@@ -24,6 +29,5 @@ public class CameraFollow : MonoBehaviour
         {
             transform.position = lastPosition;
         }
-
     }
 }

@@ -7,14 +7,9 @@ public enum PowerupType
 
 public class Powerup : MonoBehaviour
 {
-    public float powerupRotationSpeed;
+    [SerializeField] private float powerupRotationSpeed;
     public PowerupType powerupType;
-    void Start()
-    {
-        
-    }
-
-    
+       
     void Update()
     {
         TurnAround();
