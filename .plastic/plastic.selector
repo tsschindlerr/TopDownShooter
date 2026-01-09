@@ -1,4 +1,0 @@
-repository "Top Down Shooter/Top Down Shooter@20066529774699@cloud"
-  path "/"
-    br "/main"
-    co "/main"
