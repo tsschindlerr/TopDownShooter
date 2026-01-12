@@ -154,3 +154,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   speed: 10
   bottomBound: -5
+  rotationSpeed: 0
+  isEnemyMoving: 0

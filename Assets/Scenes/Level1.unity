@@ -979,6 +979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1499419334}
   - component: {fileID: 1499419333}
+  - component: {fileID: 1499419335}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1013,6 +1014,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1499419335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499419332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ed455e58f8cbe4ba41bcad5219a8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameUIHandler
+  pauseMenu: {fileID: 550301413}
 --- !u!1 &1606586677
 GameObject:
   m_ObjectHideFlags: 0
