@@ -1,11 +1,16 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameUIHandler : MonoBehaviour
 {
+    //pause menu
     public GameObject pauseMenu;
-    private bool paused;
+    [SerializeField] private bool paused;
+
+    //game over screen
+    public TextMeshProUGUI gameOverText;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -33,5 +38,11 @@ public class GameUIHandler : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void GameOver()
+    {
+        gameOverText.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 }

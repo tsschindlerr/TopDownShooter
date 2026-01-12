@@ -22,10 +22,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isMoving;
     private Animator animator;
 
+    //game over 
+    private GameUIHandler gameUIHandler;
+
     void Start()
     {
-    animator = GameObject.Find("Player Model").GetComponent<Animator>();
-    
+        animator = GameObject.Find("Player Model").GetComponent<Animator>();
+        gameUIHandler = GameObject.Find("Canvas").GetComponent<GameUIHandler>();
     }
 
 
@@ -40,7 +43,7 @@ public class PlayerController : MonoBehaviour
     // moves the player based on WASD/arrow input
     void MovePlayer()
     {
-    
+
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
 
@@ -87,6 +90,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            gameUIHandler.GameOver();
             Destroy(gameObject);
             Debug.Log("Player collided with Enemy");
         }
@@ -111,9 +115,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //trigger animation on movement (workaround)
     void AnimationTrigger()
     {
-        if(isMoving)
+        if (isMoving)
         {
             animator.SetFloat("Speed_f", 1);
         }
@@ -122,7 +127,7 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Speed_f", 0);
         }
     }
-    
+
 
 
 }
