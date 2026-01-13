@@ -18,12 +18,17 @@ public class MenuUIHandler : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
+    }
+
+    public void Highscores()
+    {
+        SceneManager.LoadScene(1);
     }
 
     public void Settings()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void QuitApp()
