@@ -11,7 +11,18 @@ public class GameUIHandler : MonoBehaviour
 
     //game over screen
     public TextMeshProUGUI gameOverText;
-    void Update()
+
+    //player name
+    public TextMeshProUGUI playerNameText;
+
+    private void Start()
+    {
+        if(SaveData.instance != null)
+        {
+            playerNameText.text = SaveData.instance.playerName;
+        }
+    }
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
