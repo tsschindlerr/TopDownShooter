@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    //enemy movement
     public float speed;
     public float bottomBound;
     public float rotationSpeed;
@@ -13,12 +14,17 @@ public class Enemy : MonoBehaviour
     public bool isEnemyMoving;
     private Animator animator;
 
+    //points on kill
+    public int pointValue;
+    private GameManager gameManager;
+
     void Start()
     {
         //access essential components for enemy movement
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
         animator = GetComponentInChildren<Animator>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
 
@@ -35,6 +41,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
+            gameManager.UpdateScore(pointValue);
             Debug.Log("Enemy collided with Projectile");
         }
     }

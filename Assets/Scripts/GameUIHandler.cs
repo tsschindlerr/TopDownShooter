@@ -6,21 +6,28 @@ using UnityEngine.SceneManagement;
 public class GameUIHandler : MonoBehaviour
 {
     //pause menu
-    public GameObject pauseMenu;
+    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private bool paused;
 
     //game over screen
-    public TextMeshProUGUI gameOverText;
+    [SerializeField] private TextMeshProUGUI gameOverText;
 
     //player name
-    public TextMeshProUGUI playerNameText;
+    [SerializeField] private TextMeshProUGUI playerNameText;
+
+    //score
+    [SerializeField] private TextMeshProUGUI scoreText;
+    private GameManager gameManager;
+
 
     private void Start()
     {
         if(SaveData.instance != null)
         {
             playerNameText.text = SaveData.instance.playerName;
+            gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         }
+        
     }
     private void Update()
     {
@@ -28,6 +35,7 @@ public class GameUIHandler : MonoBehaviour
         {
             Pause();
         }
+        scoreText.text = "Score: " + gameManager.score.ToString();
     }
 
     private void Pause()
@@ -55,5 +63,11 @@ public class GameUIHandler : MonoBehaviour
     {
         gameOverText.gameObject.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(3);
+        Time.timeScale = 1;
     }
 }

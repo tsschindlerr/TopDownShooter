@@ -8,11 +8,11 @@ using UnityEngine.UI;
 
 public class MenuUIHandler : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField InputField;
+    [SerializeField] private TMP_InputField inputField;
     public void GrabPlayerName()
     {
         string playerName;
-        playerName = InputField.text;
+        playerName = inputField.text;
         SaveData.instance.playerName = playerName;
     }
 

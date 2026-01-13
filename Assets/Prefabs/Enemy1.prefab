@@ -157,6 +157,7 @@ MonoBehaviour:
   bottomBound: -5
   rotationSpeed: 5
   isEnemyMoving: 0
+  pointValue: 1
 --- !u!1001 &5824318198898538478
 PrefabInstance:
   m_ObjectHideFlags: 0
