@@ -11,6 +11,7 @@ public class GameUIHandler : MonoBehaviour
 
     //game over screen
     [SerializeField] private TextMeshProUGUI gameOverText;
+    public bool gameOver = false;
 
     //player name
     [SerializeField] private TextMeshProUGUI playerNameText;
@@ -46,12 +47,7 @@ public class GameUIHandler : MonoBehaviour
             pauseMenu.SetActive(true);
             Time.timeScale = 0;
         }
-        else
-        {
-            paused = false;
-            pauseMenu.SetActive(false);
-            Time.timeScale = 1;
-        }
+        
     }
 
     public void BackToMenu()
@@ -63,11 +59,13 @@ public class GameUIHandler : MonoBehaviour
     {
         gameOverText.gameObject.SetActive(true);
         Time.timeScale = 0;
+        gameOver = true;
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(3);
         Time.timeScale = 1;
+        gameOver = false;
     }
 }
