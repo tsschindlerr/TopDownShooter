@@ -7,6 +7,7 @@ public class SaveData : MonoBehaviour
 
     //variables to save
     public string playerName;
+    public string highscoreName;
     public int highscore;
 
     private void Awake()
@@ -30,16 +31,18 @@ public class SaveData : MonoBehaviour
     [System.Serializable]
     class DataToSave
     {
-        public string playerName;
+        public string highscoreName;
         public int score;
     }
 
-    public void SaveHighscore(int score)
+    public void SaveHighscore(int score, string playerName)
     {
         highscore = score;
+        highscoreName = playerName;
 
         DataToSave data = new DataToSave();
         data.score = score;
+        data.highscoreName = highscoreName;
 
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/tdsSaveData.json", json);
@@ -53,6 +56,8 @@ public class SaveData : MonoBehaviour
             string json = File.ReadAllText(path);
             DataToSave data = JsonUtility.FromJson<DataToSave>(json);
             highscore = data.score;
+            highscoreName= data.highscoreName;
+            
         }
     }
 }

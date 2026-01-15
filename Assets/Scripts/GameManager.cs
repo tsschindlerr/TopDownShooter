@@ -3,11 +3,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int score;
+    public string highscoreName;
     private GameUIHandler gameUIHandler;
     private void Start()
     {
         gameUIHandler = FindAnyObjectByType<GameUIHandler>();
         UpdateScore(0);
+        highscoreName = SaveData.instance.playerName;
     }
 
     private void Update()
@@ -16,7 +18,7 @@ public class GameManager : MonoBehaviour
         {
             if (score > SaveData.instance.GetHighscore())
             {
-                SaveData.instance.SaveHighscore(score);
+                SaveData.instance.SaveHighscore(score, highscoreName);
             }
         }
     }
