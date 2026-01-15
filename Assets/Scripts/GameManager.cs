@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     private GameUIHandler gameUIHandler;
     private void Start()
     {
+        gameUIHandler = FindAnyObjectByType<GameUIHandler>();
         UpdateScore(0);
     }
 
