@@ -19,6 +19,7 @@ public class MenuUIHandler : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(3);
+        Time.timeScale = 1;
     }
 
     public void Highscores()

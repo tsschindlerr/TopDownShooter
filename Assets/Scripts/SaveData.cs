@@ -7,7 +7,7 @@ public class SaveData : MonoBehaviour
 
     //variables to save
     public string playerName;
-    public int highscore = 0;
+    public int highscore;
 
     private void Awake()
     {
@@ -42,7 +42,7 @@ public class SaveData : MonoBehaviour
         data.score = score;
 
         string json = JsonUtility.ToJson(data);
-        File.WriteAllText(Application.persistentDataPath + "/tdsSaveData", json);
+        File.WriteAllText(Application.persistentDataPath + "/tdsSaveData.json", json);
     }
 
     public void LoadHighscore()
