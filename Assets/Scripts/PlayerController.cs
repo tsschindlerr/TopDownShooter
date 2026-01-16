@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -25,10 +26,17 @@ public class PlayerController : MonoBehaviour
     //game over 
     private GameUIHandler gameUIHandler;
 
+    //powerups
+    public bool hasPowerup;
+    [SerializeField] private Material powerupIndicator;
+    [SerializeField] private Material standardMaterial;
+    private Renderer rend;
+
     void Start()
     {
         animator = GameObject.Find("Player Model").GetComponent<Animator>();
         gameUIHandler = GameObject.Find("Canvas").GetComponent<GameUIHandler>();
+        rend = GetComponent<Renderer>();
     }
 
 
@@ -88,22 +96,33 @@ public class PlayerController : MonoBehaviour
     //destroy player on collision with enemy
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && hasPowerup)
         {
             gameUIHandler.GameOver();
             Destroy(gameObject);
-            Debug.Log("Player collided with Enemy");
+            Debug.Log("Player collided with " + collision.gameObject.name + " with Powerup set to " + hasPowerup);
         }
     }
 
-    //destroy powerup on collision
+    //powerup
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Powerup"))
         {
             Destroy(other.gameObject);
+            hasPowerup = true;
             Debug.Log("Player collected Powerup");
+            rend.material = powerupIndicator;
+            StartCoroutine(PowerupTimer());
         }
+    }
+
+    //powerup timer
+    IEnumerator PowerupTimer()
+    {
+        yield return new WaitForSeconds(5);
+        hasPowerup = false;
+        rend.material = standardMaterial;
     }
 
     //fire a projectile on click

@@ -2217,6 +2217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   score: 0
+  highscoreName: 
 --- !u!4 &1499419334
 Transform:
   m_ObjectHideFlags: 0
@@ -2783,6 +2784,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 550301413}
   paused: 0
   gameOverText: {fileID: 114597286}
+  gameOver: 0
   playerNameText: {fileID: 321781894}
   scoreText: {fileID: 405216266}
 --- !u!1001 &2500468367118229561
@@ -2801,6 +2803,14 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 2055136657}
+    - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
+      propertyPath: powerupIndicator
+      value: 
+      objectReference: {fileID: 2100000, guid: 2363359c6e06c9e4bb28aba8dceb3228, type: 2}
+    - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
+      propertyPath: standardMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 34c2d8b1b19253547badb55d82bb8103, type: 2}
     - target: {fileID: 6887683431854255020, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
       propertyPath: m_Name
       value: Player Model

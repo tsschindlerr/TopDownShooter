@@ -3,7 +3,6 @@ using UnityEngine.UIElements;
 
 
 
-// add some powerup UI on pickup
 public enum PowerupType
 {
     None, Immortality, AddLife, SuddenDeath
