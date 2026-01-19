@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
 
 {
     //player movement
-    [SerializeField] private float speed;
+    [SerializeField] private float baseSpeed;
+    [SerializeField] private float baseSpeedMultiplier;
     private float horizontalInput;
     private float forwardInput;
     [SerializeField] private float turnSpeed;
@@ -27,8 +28,12 @@ public class PlayerController : MonoBehaviour
     private GameUIHandler gameUIHandler;
 
     //powerups
-    public bool hasPowerup;
-    [SerializeField] private Material powerupIndicator;
+    public bool hasPowerupDOT;
+    public bool hasPowerupKA;
+    public bool hasPowerupSB;
+    [SerializeField] private Material powerupIndicatorDOT;
+    [SerializeField] private Material powerupIndicatorKA;
+    [SerializeField] private Material powerupIndicatorSB;
     [SerializeField] private Material standardMaterial;
     [SerializeField] private SkinnedMeshRenderer playerMaterial;
 
@@ -50,6 +55,10 @@ public class PlayerController : MonoBehaviour
     // moves the player based on WASD/arrow input
     void MovePlayer()
     {
+        if(hasPowerupSB)
+        {
+            baseSpeed *= baseSpeedMultiplier;
+        }
 
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
@@ -58,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
         if (movement.magnitude > 0.01f)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+            transform.Translate(Vector3.forward * Time.deltaTime * baseSpeed * forwardInput);
 
             transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
 
@@ -92,13 +101,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    //destroy player on collision with enemy + destroy on touch powerup
+    //destroy player on collision with enemy + powerupDOT activation
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && hasPowerup)
+        if (collision.gameObject.CompareTag("Enemy") && hasPowerupDOT)
         {
             Destroy(collision.gameObject);
-            Debug.Log("Player collided with " + collision.gameObject.name + " with Powerup set to " + hasPowerup);
+            Debug.Log("Player collided with " + collision.gameObject.name + " with Powerup set to " + hasPowerupDOT);
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -109,25 +118,59 @@ public class PlayerController : MonoBehaviour
        
     }
 
-    //powerup
+    //powerup trigger + powerupKA & powerupSB activation
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Powerup"))
+        if (other.gameObject.CompareTag("PowerupDOT"))
         {
             Destroy(other.gameObject);
-            hasPowerup = true;
-            Debug.Log("Player collected Powerup");
-            playerMaterial.material = powerupIndicator;
-            StartCoroutine(PowerupTimer());
+            hasPowerupDOT = true;
+            Debug.Log("Player collected PowerupDOT");
+            playerMaterial.material = powerupIndicatorDOT;
+            StartCoroutine(PowerupTimerDOT());
+        }
+        else if (other.gameObject.CompareTag("PowerupKA"))
+        {
+            Destroy(other.gameObject);
+            Destroy(GameObject.FindWithTag("Enemy"));
+            hasPowerupKA = true;
+            playerMaterial.material = powerupIndicatorKA;
+            Debug.Log("Player collected PowerupKA");
+            Debug.Log(GameObject.FindWithTag("Enemy") + " destroyed with PowerupKA set to " + hasPowerupKA);
+            StartCoroutine(PowerupTimerKA());
+        }
+        else if (other.gameObject.CompareTag("PowerupSB"))
+        {
+            Destroy(other.gameObject);
+            hasPowerupSB = true;
+            playerMaterial.material = powerupIndicatorSB;
+            Debug.Log("Player collected PowerupSB");
+            Debug.Log("Player speed set to " + baseSpeed);
+            StartCoroutine(PowerupTimerSB());
         }
     }
 
-    //powerup timer
-    IEnumerator PowerupTimer()
+    //powerup timers
+    IEnumerator PowerupTimerDOT()
     {
         yield return new WaitForSeconds(5);
-        hasPowerup = false;
+        hasPowerupDOT = false;
         playerMaterial.material = standardMaterial;
+    }
+
+    IEnumerator PowerupTimerKA()
+    {
+        yield return new WaitForSeconds(0.5f);
+        hasPowerupKA = false;
+        playerMaterial.material = standardMaterial;
+    }
+
+    IEnumerator PowerupTimerSB()
+    {
+        yield return new WaitForSeconds(5);
+        hasPowerupSB = false;
+        playerMaterial.material = standardMaterial;
+        Debug.Log("Player speed set to " + baseSpeed);
     }
 
     //fire a projectile on click
@@ -151,7 +194,4 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Speed_f", 0);
         }
     }
-
-
-
 }

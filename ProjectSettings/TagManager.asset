@@ -5,8 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
-  - Powerup
   - Projectile
+  - PowerupDOT
+  - PowerupKA
+  - PowerupSB
   layers:
   - Default
   - TransparentFX

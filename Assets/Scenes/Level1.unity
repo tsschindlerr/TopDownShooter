@@ -2534,6 +2534,8 @@ MonoBehaviour:
   spawnInterval: 5
   powerupPrefabs:
   - {fileID: 1178165039047135783, guid: bf986bf08318a8445a1eda6a0fd5d7aa, type: 3}
+  - {fileID: 1178165039047135783, guid: fd6ddd95eac39fe4d817ee4d07b0fbe3, type: 3}
+  - {fileID: 1178165039047135783, guid: 51dcc6539f71d9b469915ca1b561fa41, type: 3}
   spawnPowerupDelay: 3
   spawnPowerupInterval: 5
   spawnRangePowerup: 20
@@ -2804,6 +2806,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2055136657}
     - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
+      propertyPath: baseSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
       propertyPath: playerMaterial
       value: 
       objectReference: {fileID: 2500468367118229562}
@@ -2815,6 +2821,22 @@ PrefabInstance:
       propertyPath: standardMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 34c2d8b1b19253547badb55d82bb8103, type: 2}
+    - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
+      propertyPath: powerupIndicatorKA
+      value: 
+      objectReference: {fileID: 2100000, guid: 11814b00d29efd3419ea22ab98fb0229, type: 2}
+    - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
+      propertyPath: powerupIndicatorSB
+      value: 
+      objectReference: {fileID: 2100000, guid: b5bf2e0f457e7d04984e522a08c51819, type: 2}
+    - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
+      propertyPath: baseSpeedMultiplier
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
+      propertyPath: powerupIndicatorDOT
+      value: 
+      objectReference: {fileID: 2100000, guid: 2363359c6e06c9e4bb28aba8dceb3228, type: 2}
     - target: {fileID: 6887683431854255020, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
       propertyPath: m_Name
       value: Player Model

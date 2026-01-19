@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7511710697774920018}
   - component: {fileID: 235822418254277318}
   m_Layer: 0
-  m_Name: Powerup
-  m_TagString: Powerup
+  m_Name: PowerupSpeedBoost
+  m_TagString: PowerupSB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c2dd835dbae08ed42ba1454f3c5b0e19, type: 2}
+  - {fileID: 2100000, guid: b5bf2e0f457e7d04984e522a08c51819, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,3 +127,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Powerup
   powerupRotationSpeed: 30
+  powerupType: 3

@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public enum PowerupType
 {
-    None, Immortality, AddLife, SuddenDeath
+    None, DeathOnTouch, KillemAll, SpeedBoost
 }
 
 public class Powerup : MonoBehaviour
