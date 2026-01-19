@@ -134,6 +134,11 @@ MonoBehaviour:
   sideBound: 30
   projectilePrefab: {fileID: 4437999612510819425, guid: dabdf2e2c2d46a74ba5385c76737f4eb, type: 3}
   projectileSpawnPoint: {fileID: 8978048356511238145}
+  isMoving: 0
+  hasPowerup: 0
+  powerupIndicator: {fileID: 0}
+  standardMaterial: {fileID: 0}
+  playerMaterial: {fileID: 0}
 --- !u!54 &22259045346285324
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -159,7 +164,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &3178747002125836111
 GameObject:

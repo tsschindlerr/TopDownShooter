@@ -30,13 +30,12 @@ public class PlayerController : MonoBehaviour
     public bool hasPowerup;
     [SerializeField] private Material powerupIndicator;
     [SerializeField] private Material standardMaterial;
-    private Renderer rend;
+    [SerializeField] private SkinnedMeshRenderer playerMaterial;
 
     void Start()
     {
         animator = GameObject.Find("Player Model").GetComponent<Animator>();
         gameUIHandler = GameObject.Find("Canvas").GetComponent<GameUIHandler>();
-        rend = GetComponent<Renderer>();
     }
 
 
@@ -93,15 +92,21 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    //destroy player on collision with enemy
+    //destroy player on collision with enemy + destroy on touch powerup
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy") && hasPowerup)
         {
-            gameUIHandler.GameOver();
-            Destroy(gameObject);
+            Destroy(collision.gameObject);
             Debug.Log("Player collided with " + collision.gameObject.name + " with Powerup set to " + hasPowerup);
         }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            gameUIHandler.GameOver();
+            Destroy(gameObject);
+            Debug.Log("Player collided with " + collision.gameObject.name);
+        }
+       
     }
 
     //powerup
@@ -112,7 +117,7 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             hasPowerup = true;
             Debug.Log("Player collected Powerup");
-            rend.material = powerupIndicator;
+            playerMaterial.material = powerupIndicator;
             StartCoroutine(PowerupTimer());
         }
     }
@@ -122,7 +127,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         hasPowerup = false;
-        rend.material = standardMaterial;
+        playerMaterial.material = standardMaterial;
     }
 
     //fire a projectile on click

@@ -2804,6 +2804,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2055136657}
     - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
+      propertyPath: playerMaterial
+      value: 
+      objectReference: {fileID: 2500468367118229562}
+    - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
       propertyPath: powerupIndicator
       value: 
       objectReference: {fileID: 2100000, guid: 2363359c6e06c9e4bb28aba8dceb3228, type: 2}
@@ -2868,6 +2872,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
+--- !u!137 &2500468367118229562 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6887683431868117878, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
+  m_PrefabInstance: {fileID: 2500468367118229561}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

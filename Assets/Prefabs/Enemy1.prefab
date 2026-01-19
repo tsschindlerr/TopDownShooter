@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2115869940863570863}
   - component: {fileID: 3200337629623605865}
   - component: {fileID: 4758951432784922136}
-  - component: {fileID: 6188275586276554652}
   - component: {fileID: 5126282610137625509}
+  - component: {fileID: 547322259868829374}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -114,7 +114,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6854436, y: 3.180465, z: 1.1409893}
   m_Center: {x: 0.00060260296, y: 1.0902325, z: 0.07049465}
---- !u!54 &6188275586276554652
+--- !u!114 &5126282610137625509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7627164855007112545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc310b04b1eda4408091f3ee5475425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  speed: 10
+  bottomBound: -5
+  rotationSpeed: 5
+  isEnemyMoving: 0
+  pointValue: 1
+--- !u!54 &547322259868829374
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,25 +156,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5126282610137625509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7627164855007112545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc310b04b1eda4408091f3ee5475425, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  speed: 10
-  bottomBound: -5
-  rotationSpeed: 5
-  isEnemyMoving: 0
-  pointValue: 1
 --- !u!1001 &5824318198898538478
 PrefabInstance:
   m_ObjectHideFlags: 0
