@@ -2807,7 +2807,7 @@ PrefabInstance:
       objectReference: {fileID: 2055136657}
     - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
       propertyPath: baseSpeed
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
       propertyPath: playerMaterial
@@ -2831,7 +2831,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b5bf2e0f457e7d04984e522a08c51819, type: 2}
     - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
       propertyPath: baseSpeedMultiplier
-      value: 1.1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5739615021924167180, guid: 67842a5bfdc4aff4da8ee0c1a4bbbb24, type: 3}
       propertyPath: powerupIndicatorDOT
