@@ -68,9 +68,9 @@ public class PlayerController : MonoBehaviour
 
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
-        
 
-            Vector3 movement = new Vector3(horizontalInput, 0, forwardInput);
+
+        Vector3 movement = new Vector3(horizontalInput, 0, forwardInput);
 
         if (movement.magnitude > 0.01f)
         {
@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && hasPowerupDOT)
         {
+            AudioManager.instance.PlayShootSFX();
             Destroy(collision.gameObject);
             Debug.Log("Player collided with " + collision.gameObject.name + " with Powerup set to " + hasPowerupDOT);
         }
@@ -122,7 +123,7 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("Player collided with " + collision.gameObject.name);
         }
-       
+
     }
 
     //powerup trigger + powerupKA & powerupSB activation
@@ -130,6 +131,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PowerupDOT"))
         {
+            AudioManager.instance.PlayPowerupDOTSFX();
             Destroy(other.gameObject);
             hasPowerupDOT = true;
             Debug.Log("Player collected PowerupDOT");
@@ -138,6 +140,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("PowerupKA"))
         {
+            AudioManager.instance.PlayPowerupKASFX();
             Destroy(other.gameObject);
             hasPowerupKA = true;
             playerMaterial.material = powerupIndicatorKA;
@@ -152,11 +155,12 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("PowerupSB"))
         {
+            AudioManager.instance.PlayPowerupSBSFX();
             Destroy(other.gameObject);
             hasPowerupSB = true;
             playerMaterial.material = powerupIndicatorSB;
             Debug.Log("Player collected PowerupSB");
-            Debug.Log("Player speed set to " +speed);
+            Debug.Log("Player speed set to " + speed);
             StartCoroutine(PowerupTimerSB());
         }
     }
@@ -190,6 +194,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(projectilePrefab, projectileSpawnPoint.position, player.transform.rotation);
+            AudioManager.instance.PlayShootSFX();
         }
     }
 

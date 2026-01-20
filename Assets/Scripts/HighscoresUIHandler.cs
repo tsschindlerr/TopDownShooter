@@ -15,6 +15,7 @@ public class HighscoresUIHandler : MonoBehaviour
     }
     public void BackToMenu()
     {
+        AudioManager.instance.PlayButtonSFX();
         SceneManager.LoadScene(0);
     }
 }

@@ -20,43 +20,51 @@ public class GameUIHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     private GameManager gameManager;
 
-
     private void Start()
     {
-        if(SaveData.instance != null)
+        if (SaveData.instance != null)
         {
             playerNameText.text = SaveData.instance.playerName;
             gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         }
-        
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (!paused && Input.GetKeyDown(KeyCode.P))
         {
             Pause();
         }
-        scoreText.text = "Score: " + gameManager.score.ToString();
+        else if (paused && Input.GetKeyDown(KeyCode.P))
+        {
+            AudioManager.instance.PlayButtonSFX();
+            paused = false;
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
+
+            scoreText.text = "Score: " + gameManager.score.ToString();
     }
 
     private void Pause()
     {
-        if(!paused)
+        if (!paused)
         {
+            AudioManager.instance.PlayButtonSFX();
             paused = true;
             pauseMenu.SetActive(true);
             Time.timeScale = 0;
         }
-        
     }
 
     public void BackToMenu()
     {
+        AudioManager.instance.PlayButtonSFX();
         SceneManager.LoadScene(0);
     }
 
     public void GameOver()
     {
+        AudioManager.instance.PlayGameOverSFX();
         gameOverText.gameObject.SetActive(true);
         Time.timeScale = 0;
         gameOver = true;
@@ -64,6 +72,7 @@ public class GameUIHandler : MonoBehaviour
 
     public void Restart()
     {
+        AudioManager.instance.PlayButtonSFX();
         SceneManager.LoadScene(3);
         Time.timeScale = 1;
         gameOver = false;
