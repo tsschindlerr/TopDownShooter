@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
+            VFXManager.instance.PlayDeathParticle();
             Destroy(gameObject);
             Destroy(other.gameObject);
             gameManager.UpdateScore(pointValue);
