@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4068318505570977826
 Transform:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   bottomBound: -5
   rotationSpeed: 5
   isEnemyMoving: 0
-  pointValue: 1
+  pointValue: 3
   enemyLives: 1
 --- !u!54 &547322259868829374
 Rigidbody:

@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     //points on kill
     public int pointValue;
     private GameManager gameManager;
+    private PlayerController playerController;
 
     //enemy lives
     public int enemyLives;
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.Find("Player");
         animator = GetComponentInChildren<Animator>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
 
@@ -40,7 +42,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Projectile"))
+        if(other.gameObject.CompareTag("Projectile"))
         {
             VFXManager.instance.PlayDeathVFX(gameObject.transform.position);
             gameManager.UpdateScore(pointValue);

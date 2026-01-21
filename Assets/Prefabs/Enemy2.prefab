@@ -130,7 +130,7 @@ MonoBehaviour:
   bottomBound: -5
   rotationSpeed: 5
   isEnemyMoving: 0
-  pointValue: 1
+  pointValue: 2
   enemyLives: 2
 --- !u!54 &547322259868829374
 Rigidbody:

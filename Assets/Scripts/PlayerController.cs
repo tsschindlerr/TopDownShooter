@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 
 {
+    private GameManager gameManager;
+
     //player movement
     [SerializeField] private float baseSpeed;
     [SerializeField] private float speed;
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         animator = GameObject.Find("Player Model").GetComponent<Animator>();
         gameUIHandler = GameObject.Find("Canvas").GetComponent<GameUIHandler>();
         baseSpeed = speed;
@@ -113,6 +116,12 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && hasPowerupDOT)
         {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                gameManager.UpdateScore(enemy.pointValue);
+            }
+
             VFXManager.instance.PlayDeathVFX(gameObject.transform.position);
             AudioManager.instance.PlayShootSFX();
             Destroy(collision.gameObject);
@@ -150,6 +159,11 @@ public class PlayerController : MonoBehaviour
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemies)
             {
+                Enemy enemyScript = enemy.GetComponent<Enemy>();
+                if(enemyScript != null)
+                {
+                    gameManager.UpdateScore(enemyScript.pointValue);
+                }
                 Destroy(enemy);
             }
             Debug.Log("Player collected PowerupKA");
