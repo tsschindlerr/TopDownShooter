@@ -3,7 +3,8 @@ using UnityEngine;
 public class VFXManager : MonoBehaviour
 {
     public static VFXManager instance;
-    public ParticleSystem deathParticle;
+    public ParticleSystem deathVFX;
+    public ParticleSystem playerDeathVFX;
     private void Awake()
     {
         if (instance != null)
@@ -15,8 +16,15 @@ public class VFXManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);        
     }
 
-    public void PlayDeathParticle()
+    public void PlayDeathVFX(Vector3 position)
     {
-        deathParticle.Play();
+        Debug.Log("Spawning VFX at " + position);
+        Instantiate(deathVFX, position, Quaternion.identity);
+    }
+    public void PlayPlayerDeathVFX(Vector3 position)
+    {
+        Debug.Log("Spawning VFX at " + position);
+        Instantiate(deathVFX, position, Quaternion.identity);
     }
 }
+

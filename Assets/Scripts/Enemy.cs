@@ -39,11 +39,11 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
-            VFXManager.instance.PlayDeathParticle();
-            Destroy(gameObject);
-            Destroy(other.gameObject);
+            VFXManager.instance.PlayDeathVFX(gameObject.transform.position);
             gameManager.UpdateScore(pointValue);
             Debug.Log("Enemy collided with Projectile");
+            Destroy(other.gameObject);
+            Destroy(gameObject);  
         }
     }
 

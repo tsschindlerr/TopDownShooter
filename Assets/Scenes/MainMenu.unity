@@ -2652,7 +2652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af4691b08dadd646b4fef70e4e06e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VFXManager
-  deathParticle: {fileID: 4183769728296144073, guid: 2102e30bb21a9fe449687744fe84fba9, type: 3}
+  deathVFX: {fileID: 4183769728296144073, guid: 2102e30bb21a9fe449687744fe84fba9, type: 3}
+  playerDeathVFX: {fileID: 4183769728296144073, guid: 17b1fb8e72e91af41973aa65be98365d, type: 3}
 --- !u!4 &2076422700
 Transform:
   m_ObjectHideFlags: 0
