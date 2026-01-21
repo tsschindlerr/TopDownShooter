@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") && hasPowerupDOT)
         {
+            VFXManager.instance.PlayDeathVFX(gameObject.transform.position);
             AudioManager.instance.PlayShootSFX();
             Destroy(collision.gameObject);
             Debug.Log("Player collided with " + collision.gameObject.name + " with Powerup set to " + hasPowerupDOT);
@@ -131,6 +132,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PowerupDOT"))
         {
+            VFXManager.instance.PlayPowerupVFX(gameObject.transform.position);
             AudioManager.instance.PlayPowerupDOTSFX();
             Destroy(other.gameObject);
             hasPowerupDOT = true;
@@ -140,6 +142,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("PowerupKA"))
         {
+            VFXManager.instance.PlayPowerupVFX(gameObject.transform.position);
             AudioManager.instance.PlayPowerupKASFX();
             Destroy(other.gameObject);
             hasPowerupKA = true;
@@ -155,6 +158,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("PowerupSB"))
         {
+            VFXManager.instance.PlayPowerupVFX(gameObject.transform.position);
             AudioManager.instance.PlayPowerupSBSFX();
             Destroy(other.gameObject);
             hasPowerupSB = true;

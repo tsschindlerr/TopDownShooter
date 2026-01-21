@@ -4,7 +4,7 @@ public class VFXManager : MonoBehaviour
 {
     public static VFXManager instance;
     public ParticleSystem deathVFX;
-    public ParticleSystem playerDeathVFX;
+    public ParticleSystem powerupVFX;
     private void Awake()
     {
         if (instance != null)
@@ -21,10 +21,10 @@ public class VFXManager : MonoBehaviour
         Debug.Log("Spawning VFX at " + position);
         Instantiate(deathVFX, position, Quaternion.identity);
     }
-    public void PlayPlayerDeathVFX(Vector3 position)
+    public void PlayPowerupVFX(Vector3 position)
     {
         Debug.Log("Spawning VFX at " + position);
-        Instantiate(deathVFX, position, Quaternion.identity);
+        Instantiate(powerupVFX, position, Quaternion.identity);
     }
 }
 
