@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     public int pointValue;
     private GameManager gameManager;
 
+    //enemy lives
+    public int enemyLives;
+
     void Start()
     {
         //access essential components for enemy movement
@@ -43,7 +46,11 @@ public class Enemy : MonoBehaviour
             gameManager.UpdateScore(pointValue);
             Debug.Log("Enemy collided with Projectile");
             Destroy(other.gameObject);
-            Destroy(gameObject);  
+            enemyLives -= 1;
+            if (enemyLives <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

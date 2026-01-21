@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4068318505570977826
 Transform:
   m_ObjectHideFlags: 0
@@ -126,11 +126,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc310b04b1eda4408091f3ee5475425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  speed: 10
+  speed: 5
   bottomBound: -5
   rotationSpeed: 5
   isEnemyMoving: 0
   pointValue: 1
+  enemyLives: 3
 --- !u!54 &547322259868829374
 Rigidbody:
   m_ObjectHideFlags: 0

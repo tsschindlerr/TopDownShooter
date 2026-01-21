@@ -2619,9 +2619,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
   enemyPrefabs:
   - {fileID: 7627164855007112545, guid: a8a9ae8dccda06f4c9c84a37d99bbcfb, type: 3}
-  - {fileID: 3363034505739839163, guid: 20384cc2db282544e98254b2eff9479e, type: 3}
-  - {fileID: 3019041054389251757, guid: f1f26148ba16ba44286d18e37df6bdde, type: 3}
-  - {fileID: 1675243360061182002, guid: 00136ef726961354b8d9b73235c43556, type: 3}
+  - {fileID: 7627164855007112545, guid: 118b3a14d77d76a4798676f52dfe3903, type: 3}
+  - {fileID: 7627164855007112545, guid: 25980d4b8af8ecb42882e9f7bb538308, type: 3}
   player: {fileID: 1019016237}
   spawnPosX: 32
   spawnPosZ: 32
