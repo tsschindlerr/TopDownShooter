@@ -27,4 +27,3 @@ public class VFXManager : MonoBehaviour
         Instantiate(powerupVFX, position, Quaternion.identity);
     }
 }
-

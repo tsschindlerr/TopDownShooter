@@ -164,6 +164,7 @@ public class PlayerController : MonoBehaviour
                 {
                     gameManager.UpdateScore(enemyScript.pointValue);
                 }
+                VFXManager.instance.PlayDeathVFX(enemy.transform.position);
                 Destroy(enemy);
             }
             Debug.Log("Player collected PowerupKA");

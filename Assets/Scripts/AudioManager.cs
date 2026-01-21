@@ -3,6 +3,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
+
     //main menu
     private AudioSource gameAudio;
     public AudioClip buttonSFX;
