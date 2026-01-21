@@ -59,6 +59,7 @@ public class GameUIHandler : MonoBehaviour
         {
             remainingTime = 0;
             WinScreen();
+            levelTimerText.color = Color.green;
         }
         remainingTime -= Time.deltaTime;
         int minutes = Mathf.FloorToInt(remainingTime / 60);
