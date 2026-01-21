@@ -13,12 +13,19 @@ public class GameUIHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameOverText;
     public bool gameOver = false;
 
+    //win screen
+    [SerializeField] private TextMeshProUGUI winScreenText;
+
     //player name
     [SerializeField] private TextMeshProUGUI playerNameText;
 
     //score
     [SerializeField] private TextMeshProUGUI scoreText;
     private GameManager gameManager;
+
+    //level timer
+    public TextMeshProUGUI levelTimerText;
+    public float remainingTime;
 
     private void Start()
     {
@@ -41,8 +48,22 @@ public class GameUIHandler : MonoBehaviour
             pauseMenu.SetActive(false);
             Time.timeScale = 1;
         }
+        scoreText.text = "Score: " + gameManager.score.ToString();
 
-            scoreText.text = "Score: " + gameManager.score.ToString();
+        //level timer
+        if (remainingTime > 0)
+        {
+            remainingTime -= Time.deltaTime;
+        }
+        else if (remainingTime < 0)
+        {
+            remainingTime = 0;
+            WinScreen();
+        }
+        remainingTime -= Time.deltaTime;
+        int minutes = Mathf.FloorToInt(remainingTime / 60);
+        int seconds = Mathf.FloorToInt(remainingTime % 60);
+        levelTimerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     private void Pause()
@@ -76,5 +97,12 @@ public class GameUIHandler : MonoBehaviour
         SceneManager.LoadScene(3);
         Time.timeScale = 1;
         gameOver = false;
+    }
+
+    public void WinScreen()
+    {
+        AudioManager.instance.PlayWinScreenSFX();
+        winScreenText.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 }

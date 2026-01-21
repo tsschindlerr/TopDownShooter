@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip powerupSFXSB;
     public AudioClip shootSFX;
     public AudioClip gameOverSFX;
+    public AudioClip winScreenSFX;
 
     private void Awake()
     {
@@ -55,4 +56,10 @@ public class AudioManager : MonoBehaviour
     {
         gameAudio.PlayOneShot(gameOverSFX, 1.0f);
     }
+
+    public void PlayWinScreenSFX()
+    {
+        gameAudio.PlayOneShot(winScreenSFX, 1.0f);
+    }
+
 }
