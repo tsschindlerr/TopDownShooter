@@ -24,8 +24,8 @@ public class GameUIHandler : MonoBehaviour
     private GameManager gameManager;
 
     //level timer
-    public TextMeshProUGUI levelTimerText;
-    public float remainingTime;
+    [SerializeField] private TextMeshProUGUI levelTimerText;
+    [SerializeField] private float remainingTime;
 
     private void Start()
     {
@@ -61,7 +61,6 @@ public class GameUIHandler : MonoBehaviour
             WinScreen();
             levelTimerText.color = Color.green;
         }
-        remainingTime -= Time.deltaTime;
         int minutes = Mathf.FloorToInt(remainingTime / 60);
         int seconds = Mathf.FloorToInt(remainingTime % 60);
         levelTimerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
