@@ -105,4 +105,11 @@ public class GameUIHandler : MonoBehaviour
         winScreenText.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
+
+    public void NextLevel()
+    {
+        AudioManager.instance.PlayButtonSFX();
+        SceneManager.LoadScene(4);
+        //generic next scene method??
+    }
 }
