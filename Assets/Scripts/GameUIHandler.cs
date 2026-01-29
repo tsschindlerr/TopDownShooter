@@ -109,7 +109,20 @@ public class GameUIHandler : MonoBehaviour
     public void NextLevel()
     {
         AudioManager.instance.PlayButtonSFX();
-        SceneManager.LoadScene(4);
-        //generic next scene method??
+
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        int nextScene = currentScene + 1;
+
+        if (nextScene < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextScene);
+            Debug.Log("Scene " + nextScene);
+        }
+        else
+        {
+            Debug.Log("No more levels!!");
+        }            
+        
+        Time.timeScale = 1;
     }
 }

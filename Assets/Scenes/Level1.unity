@@ -2643,7 +2643,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2055136662}
         m_TargetAssemblyTypeName: GameUIHandler, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3702,7 +3702,7 @@ MonoBehaviour:
   playerNameText: {fileID: 321781894}
   scoreText: {fileID: 405216266}
   levelTimerText: {fileID: 1765169004}
-  remainingTime: 30
+  remainingTime: 5
 --- !u!82 &2055136663
 AudioSource:
   m_ObjectHideFlags: 0

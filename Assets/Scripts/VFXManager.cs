@@ -18,12 +18,12 @@ public class VFXManager : MonoBehaviour
 
     public void PlayDeathVFX(Vector3 position)
     {
-        Debug.Log("Spawning VFX at " + position);
+        //Debug.Log("Spawning VFX at " + position);
         Instantiate(deathVFX, position, Quaternion.identity);
     }
     public void PlayPowerupVFX(Vector3 position)
     {
-        Debug.Log("Spawning VFX at " + position);
+        //Debug.Log("Spawning VFX at " + position);
         Instantiate(powerupVFX, position, Quaternion.identity);
     }
 }
