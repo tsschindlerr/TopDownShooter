@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class SpawnManager : MonoBehaviour
@@ -17,10 +18,14 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] powerupPrefabs;
     [SerializeField] private float spawnPowerupDelay;
     [SerializeField] private float spawnPowerupInterval;
-    [SerializeField] private float spawnRangePowerup = 20;
+    [SerializeField] private float spawnRangePowerupA;
+    [SerializeField] private float spawnRangePowerupB;
+    [SerializeField] private float spawnRangePowerupC;
+    [SerializeField] private float spawnRangePowerupD;
 
     void Start()
     {
+        SetPowerupSpawnRangeForLevel();
         InvokeRepeating(("SpawnEnemiesUp"), startDelay, spawnInterval);
         InvokeRepeating(("SpawnEnemiesRight"), startDelay, spawnInterval);
         InvokeRepeating(("SpawnEnemiesLeft"), startDelay, spawnInterval);
@@ -102,8 +107,8 @@ public class SpawnManager : MonoBehaviour
     private Vector3 PowerupSpawnPosition()
     {
         {
-            float spawnPowerupPosX = Random.Range(-spawnRangePowerup, spawnRangePowerup);
-            float spawnPowerupPosZ = Random.Range(-spawnRangePowerup, spawnRangePowerup);
+            float spawnPowerupPosX = Random.Range(spawnRangePowerupA, spawnRangePowerupB);
+            float spawnPowerupPosZ = Random.Range(spawnRangePowerupC, spawnRangePowerupD);
             Vector3 randomPowerupPos = new Vector3(spawnPowerupPosX, 1, spawnPowerupPosZ);
             return randomPowerupPos;
         }
@@ -113,5 +118,35 @@ public class SpawnManager : MonoBehaviour
     {
         int randomPowerup = Random.Range(0, powerupPrefabs.Length);
         Instantiate(powerupPrefabs[randomPowerup], PowerupSpawnPosition(), powerupPrefabs[randomPowerup].transform.rotation);
+    }
+
+    //powerup spawn range modifiers
+    void SetPowerupSpawnRangeForLevel()
+    {
+        string levelName = SceneManager.GetActiveScene().name;
+
+        switch (levelName)
+        {
+            case "Level1":
+                spawnRangePowerupA = -20f;
+                spawnRangePowerupB = 20f;
+                spawnRangePowerupC = -20f;
+                spawnRangePowerupD = 20f;
+                break;
+
+            case "Level2":
+                spawnRangePowerupA = -50f;
+                spawnRangePowerupB = 50f;
+                spawnRangePowerupC = -20f;
+                spawnRangePowerupD = 20f;
+                break;
+
+            case "Level3":
+                spawnRangePowerupA = -50f;
+                spawnRangePowerupB = 50f;
+                spawnRangePowerupC = -20f;
+                spawnRangePowerupD = 20f;
+                break;
+        }
     }
 }

@@ -47,14 +47,14 @@ public class PlayerController : MonoBehaviour
         animator = GameObject.Find("Player Model").GetComponent<Animator>();
         gameUIHandler = GameObject.Find("Canvas").GetComponent<GameUIHandler>();
         baseSpeed = speed;
+        SetBoundsForLevel();
     }
 
 
     void Update()
     {
         MovePlayer();
-        ConstrainPlayerMove();
-        SetBoundsForLevel();
+        ConstrainPlayerMove();        
         Fire();
         AnimationTrigger();
     }
@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //different bounds for different levels
     void SetBoundsForLevel()
     {
         string levelName = SceneManager.GetActiveScene().name;
@@ -135,7 +136,6 @@ public class PlayerController : MonoBehaviour
                 break;
 
         }
-
     }
 
     //destroy player on collision with enemy + powerupDOT activation
