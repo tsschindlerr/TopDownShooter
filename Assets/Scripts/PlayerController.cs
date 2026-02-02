@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
             case "Level3":
                 topBound = 30f;
-                sideBound = 60f;
+                sideBound = 50f;
                 break;
 
         }
