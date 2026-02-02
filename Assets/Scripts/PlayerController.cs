@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerController : MonoBehaviour
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
         ConstrainPlayerMove();
+        SetBoundsForLevel();
         Fire();
         AnimationTrigger();
     }
@@ -111,6 +113,31 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void SetBoundsForLevel()
+    {
+        string levelName = SceneManager.GetActiveScene().name;
+
+        switch (levelName)
+        {
+            case "Level1":
+                topBound = 30f;
+                sideBound = 30f;
+                break;
+
+            case "Level2":
+                topBound = 30f;
+                sideBound = 60f;
+                break;
+
+            case "Level3":
+                topBound = 30f;
+                sideBound = 60f;
+                break;
+
+        }
+
+    }
+
     //destroy player on collision with enemy + powerupDOT activation
     private void OnCollisionEnter(Collision collision)
     {
@@ -160,7 +187,7 @@ public class PlayerController : MonoBehaviour
             foreach (GameObject enemy in enemies)
             {
                 Enemy enemyScript = enemy.GetComponent<Enemy>();
-                if(enemyScript != null)
+                if (enemyScript != null)
                 {
                     gameManager.UpdateScore(enemyScript.pointValue);
                 }
