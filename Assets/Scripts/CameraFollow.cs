@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    private Vector3 offset = new Vector3(0, 24, 0);
+    private Vector3 offset = new Vector3(0, 30, 0);
     private Vector3 lastPosition;
 
     void LateUpdate()

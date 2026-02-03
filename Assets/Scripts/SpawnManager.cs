@@ -45,7 +45,7 @@ public class SpawnManager : MonoBehaviour
         {
 
             int enemyIndexUp = Random.Range(0, enemyPrefabs.Length);
-            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeZ, spawnRangeZ), 5, spawnPosX);
+            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeZ, spawnRangeZ), 1, spawnPosX);
             Vector3 directionToPlayer = (player.position - spawnPos).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
             Instantiate(enemyPrefabs[enemyIndexUp], spawnPos, lookRotation);
@@ -61,7 +61,7 @@ public class SpawnManager : MonoBehaviour
         if (player != null)
         {
             int enemyIndexRight = Random.Range(0, enemyPrefabs.Length);
-            Vector3 spawnPos = new Vector3(spawnPosX, 5, Random.Range(-spawnRangeZ, spawnRangeZ));
+            Vector3 spawnPos = new Vector3(spawnPosX, 1, Random.Range(-spawnRangeZ, spawnRangeZ));
             Vector3 directionToPlayer = (player.position - spawnPos).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
             Instantiate(enemyPrefabs[enemyIndexRight], spawnPos, lookRotation);
@@ -77,7 +77,7 @@ public class SpawnManager : MonoBehaviour
         if (player != null)
         {
             int enemyIndexLeft = Random.Range(0, enemyPrefabs.Length);
-            Vector3 spawnPos = new Vector3(-spawnPosX, 5, Random.Range(-spawnRangeZ, spawnRangeZ));
+            Vector3 spawnPos = new Vector3(-spawnPosX, 1, Random.Range(-spawnRangeZ, spawnRangeZ));
             Vector3 directionToPlayer = (player.position - spawnPos).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
             Instantiate(enemyPrefabs[enemyIndexLeft], spawnPos, lookRotation);
@@ -93,7 +93,7 @@ public class SpawnManager : MonoBehaviour
         if (player != null)
         {
             int enemyIndexDown = Random.Range(0, enemyPrefabs.Length);
-            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeZ, spawnRangeZ), 5, -spawnPosX);
+            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeZ, spawnRangeZ), 1, -spawnPosX);
             Vector3 directionToPlayer = (player.position - spawnPos).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
             Instantiate(enemyPrefabs[enemyIndexDown], spawnPos, lookRotation);

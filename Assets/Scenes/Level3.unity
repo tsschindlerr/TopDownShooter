@@ -1697,7 +1697,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next Level
+  m_text: More Levels Soon!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca61120f80b23f94f80a7d046fb269a4, type: 2}
   m_sharedMaterial: {fileID: 3746363891495480417, guid: ca61120f80b23f94f80a7d046fb269a4, type: 2}
@@ -1724,8 +1724,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 18.4
+  m_fontSizeBase: 18.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2495,7 +2495,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2055136662}
         m_TargetAssemblyTypeName: GameUIHandler, Assembly-CSharp
-        m_MethodName: NextLevel
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3359,8 +3359,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
   enemyPrefabs:
   - {fileID: 7627164855007112545, guid: a8a9ae8dccda06f4c9c84a37d99bbcfb, type: 3}
-  - {fileID: 7627164855007112545, guid: 118b3a14d77d76a4798676f52dfe3903, type: 3}
-  - {fileID: 7627164855007112545, guid: 25980d4b8af8ecb42882e9f7bb538308, type: 3}
+  - {fileID: 7627164855007112545, guid: 3251d48a648709f4c96bafd4cf5a1973, type: 3}
+  - {fileID: 7627164855007112545, guid: e07a55fb0295805429b3f7979a96e843, type: 3}
   player: {fileID: 1019016237}
   spawnPosX: 32
   spawnPosZ: 32
@@ -3557,7 +3557,7 @@ MonoBehaviour:
   playerNameText: {fileID: 321781894}
   scoreText: {fileID: 405216266}
   levelTimerText: {fileID: 1765169004}
-  remainingTime: 300
+  remainingTime: 180
 --- !u!82 &2055136663
 AudioSource:
   m_ObjectHideFlags: 0

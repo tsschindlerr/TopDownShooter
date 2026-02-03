@@ -3443,7 +3443,7 @@ MonoBehaviour:
   - {fileID: 1178165039047135783, guid: fd6ddd95eac39fe4d817ee4d07b0fbe3, type: 3}
   - {fileID: 1178165039047135783, guid: 51dcc6539f71d9b469915ca1b561fa41, type: 3}
   spawnPowerupDelay: 3
-  spawnPowerupInterval: 5
+  spawnPowerupInterval: 15
   spawnRangePowerupA: 0
   spawnRangePowerupB: 0
   spawnRangePowerupC: 0
@@ -3703,7 +3703,7 @@ MonoBehaviour:
   playerNameText: {fileID: 321781894}
   scoreText: {fileID: 405216266}
   levelTimerText: {fileID: 1765169004}
-  remainingTime: 100
+  remainingTime: 90
 --- !u!82 &2055136663
 AudioSource:
   m_ObjectHideFlags: 0
