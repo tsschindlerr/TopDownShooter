@@ -66,7 +66,7 @@ public class GameUIHandler : MonoBehaviour
         levelTimerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    private void Pause()
+    public void Pause()
     {
         if (!paused)
         {

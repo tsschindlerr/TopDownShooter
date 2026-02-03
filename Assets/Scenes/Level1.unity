@@ -708,7 +708,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 12.868425
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -3446,7 +3446,10 @@ MonoBehaviour:
   - {fileID: 1178165039047135783, guid: 51dcc6539f71d9b469915ca1b561fa41, type: 3}
   spawnPowerupDelay: 3
   spawnPowerupInterval: 5
-  spawnRangePowerup: 20
+  spawnRangePowerupA: 0
+  spawnRangePowerupB: 0
+  spawnRangePowerupC: 0
+  spawnRangePowerupD: 0
 --- !u!4 &1783133460
 Transform:
   m_ObjectHideFlags: 0

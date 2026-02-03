@@ -237,11 +237,15 @@ public class PlayerController : MonoBehaviour
     //fire a projectile on click
     void Fire()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(projectilePrefab, projectileSpawnPoint.position, player.transform.rotation);
             AudioManager.instance.PlayShootSFX();
-        }
+        }        
     }
 
     //trigger animation on movement (workaround)
