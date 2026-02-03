@@ -3703,7 +3703,6 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 7627164855007112545, guid: a8a9ae8dccda06f4c9c84a37d99bbcfb, type: 3}
   - {fileID: 7627164855007112545, guid: 118b3a14d77d76a4798676f52dfe3903, type: 3}
-  - {fileID: 7627164855007112545, guid: 25980d4b8af8ecb42882e9f7bb538308, type: 3}
   player: {fileID: 1019016237}
   spawnPosX: 32
   spawnPosZ: 32
@@ -3717,7 +3716,10 @@ MonoBehaviour:
   - {fileID: 1178165039047135783, guid: 51dcc6539f71d9b469915ca1b561fa41, type: 3}
   spawnPowerupDelay: 3
   spawnPowerupInterval: 5
-  spawnRangePowerup: 20
+  spawnRangePowerupA: 0
+  spawnRangePowerupB: 0
+  spawnRangePowerupC: 0
+  spawnRangePowerupD: 0
 --- !u!4 &1783133460
 Transform:
   m_ObjectHideFlags: 0
