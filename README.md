@@ -11,5 +11,7 @@ LMB - fire
 P - pause
 
 <img width="1018" height="763" alt="image" src="https://github.com/user-attachments/assets/cae7d656-6447-4006-9c86-7370634fee7f" />
-<img width="1018" height="763" alt="image" src="https://github.com/user-attachments/assets/15d0d04c-b4f4-4564-9e1b-cd7d86fd0165" />
+
+<img width="1022" height="765" alt="image" src="https://github.com/user-attachments/assets/0f3ad1c8-2a90-4e22-8421-8d0242b095e6" />
+
 <img width="1286" height="782" alt="image" src="https://github.com/user-attachments/assets/396c0987-2642-40de-b0fa-cc0447784942" />
